@@ -214,6 +214,21 @@
       color: var(--text-muted);
     }
 
+    .place-link {
+      color: inherit;
+      text-decoration: none;
+      display: block;
+    }
+
+    .place-link strong { color: var(--accent-dark); }
+
+    .place-link span {
+      color: var(--text-muted);
+      font-size: 0.88rem;
+    }
+
+    .place-link:hover strong { text-decoration: underline; }
+
     .emergency {
       background: rgba(255,255,255,0.58);
     }
@@ -322,6 +337,19 @@
       <li>Try snack, <strong>Baby Maisy</strong>, “Wheels on the Bus,” book, or cuddle</li>
       <li>Walk outside / change scenery / toy distraction can reset him</li>
       <li>Calm voice + patience usually works best</li>
+    </ul>
+  </div>
+
+  <!-- Nearby Places -->
+  <div class="section">
+    <div class="section-header">
+      <img src="icon-luca-activities-cutout.png" alt="">
+      <h2>Nearby Places</h2>
+    </div>
+    <ul>
+      <li><a class="place-link" href="https://www.google.com/maps/search/?api=1&query=WNYC%20Transmitter%20Park%20Brooklyn%20NY" target="_blank" rel="noopener"><strong>WNYC Transmitter Park</strong><br><span>Closest waterfront park; quick walk from 156 Kent St.</span></a></li>
+      <li><a class="place-link" href="https://www.google.com/maps/search/?api=1&query=American%20Playground%20Brooklyn%20NY" target="_blank" rel="noopener"><strong>American Playground</strong><br><span>Nearby playground option in Greenpoint.</span></a></li>
+      <li><a class="place-link" href="https://www.google.com/maps/search/?api=1&query=Greenpoint%20Library%20Brooklyn%20Public%20Library" target="_blank" rel="noopener"><strong>Greenpoint Library</strong><br><span>Local Brooklyn Public Library branch.</span></a></li>
     </ul>
   </div>
 
