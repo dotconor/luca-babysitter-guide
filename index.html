@@ -1,0 +1,397 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Luca Day Guide 🧸</title>
+  <link rel="icon" type="image/png" href="favicon.png">
+  <meta property="og:title" content="Luca Day Guide">
+  <meta property="og:description" content="A babysitter guide — from Conor & Rach 🧸">
+  <meta property="og:type" content="website">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Playfair+Display:wght@700;900&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --bg: #FDF5E0;
+      --card: rgba(255,255,255,0.62);
+      --accent: #E8735A;
+      --accent-light: #FFF0EC;
+      --accent-dark: #C94F39;
+      --text: #2D2A26;
+      --text-muted: #7A756E;
+      --rule: rgba(45,42,38,0.10);
+      --emergency: #DC3545;
+      --shadow: 0 12px 40px rgba(45,42,38,0.07);
+      --shadow-soft: 0 8px 22px rgba(45,42,38,0.08);
+    }
+
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+
+    body {
+      font-family: 'Inter', -apple-system, sans-serif;
+      background: var(--bg);
+      color: var(--text);
+      line-height: 1.55;
+      -webkit-font-smoothing: antialiased;
+    }
+
+    .container {
+      max-width: 660px;
+      margin: 0 auto;
+      padding: 18px 20px 80px;
+    }
+
+    .hero {
+      text-align: center;
+      padding: 4px 0 24px;
+    }
+
+    .hero-art {
+      width: min(100%, 560px);
+      display: block;
+      margin: 0 auto 18px;
+      border-radius: 0;
+      box-shadow: none;
+    }
+
+    .hero .subtitle {
+      color: var(--text-muted);
+      font-size: 0.96rem;
+    }
+
+    .section, .alert {
+      background: var(--card);
+      border: 1px solid rgba(45,42,38,0.07);
+      border-radius: 28px;
+      box-shadow: 0 8px 26px rgba(45,42,38,0.045);
+      margin-bottom: 18px;
+      backdrop-filter: blur(5px);
+    }
+
+    .alert {
+      background: transparent;
+      border: 0;
+      box-shadow: none;
+      padding: 4px 18px 20px;
+      margin-top: -6px;
+      margin-bottom: 18px;
+    }
+
+
+    .quick-note {
+      display: grid;
+      grid-template-columns: 112px 1fr;
+      align-items: center;
+      gap: 20px;
+      background: transparent;
+      border: 0;
+      box-shadow: none;
+      padding: 0 18px 20px;
+      margin-top: -6px;
+    }
+
+    .quick-note-art {
+      width: 112px;
+      height: 112px;
+      object-fit: contain;
+    }
+
+    .alert-icon { display: none; }
+
+    .alert-text {
+      font-size: 0.98rem;
+      font-weight: 500;
+      max-width: 52ch;
+      margin: 0 auto;
+      text-align: center;
+    }
+
+    .alert-text strong { color: var(--accent-dark); }
+
+    .alert-text br { display: none; }
+
+    .section {
+      padding: 24px 24px 22px;
+    }
+
+    .section-header {
+      display: grid;
+      grid-template-columns: 112px 1fr;
+      align-items: center;
+      gap: 20px;
+      margin-bottom: 12px;
+    }
+
+    .section-header img,
+    .section-header span {
+      width: 112px !important;
+      height: 112px !important;
+      border-radius: 0 !important;
+      object-fit: contain;
+      flex-shrink: 0;
+      box-shadow: none;
+      background: transparent;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 54px !important;
+    }
+
+    .section-header h2 {
+      font-size: 1.38rem;
+      font-weight: 800;
+      letter-spacing: -0.02em;
+      line-height: 1.08;
+    }
+
+    ul { list-style: none; padding: 0; margin: 0; }
+
+    li {
+      padding: 8px 0;
+      font-size: 0.96rem;
+      border-top: 1px solid var(--rule);
+    }
+
+    li:first-child { border-top: 0; }
+    li::before { content: none; }
+    li strong { color: var(--accent-dark); font-weight: 800; }
+
+    .time-badge {
+      display: inline-block;
+      background: transparent;
+      color: var(--accent-dark);
+      font-size: 0.78rem;
+      font-weight: 800;
+      margin: 0 0 8px;
+      text-transform: uppercase;
+      letter-spacing: 0.04em;
+    }
+
+    .smart-note {
+      font-size: 0.94rem;
+      color: var(--text-muted);
+      margin-bottom: 14px;
+    }
+
+    .smart-group {
+      font-size: 0.76rem;
+      text-transform: uppercase;
+      letter-spacing: 0.06em;
+      color: var(--accent-dark);
+      margin: 18px 0 8px;
+      font-weight: 800;
+    }
+
+    .tiles-scroll {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 8px;
+      padding: 0;
+      margin: 0 0 8px;
+      overflow: visible;
+    }
+
+    .tile {
+      background: rgba(255,255,255,0.58);
+      border-radius: 14px;
+      padding: 10px 12px;
+      text-align: left;
+      border: 1px solid var(--rule);
+      min-width: 0;
+    }
+
+    .tile-icon { display: none; }
+    .tile-name { font-size: 0.84rem; font-weight: 800; line-height: 1.15; }
+    .tile-sub { font-size: 0.72rem; color: var(--text-muted); margin-top: 2px; }
+
+    .voice-cmd, .note {
+      background: transparent;
+      border-top: 1px solid var(--rule);
+      border-radius: 0;
+      padding: 10px 0 0;
+      margin-top: 8px;
+      font-size: 0.88rem;
+      color: var(--text-muted);
+    }
+
+    .emergency {
+      background: rgba(255,255,255,0.58);
+    }
+
+    .emergency h2 { color: var(--emergency); }
+
+    .footer {
+      text-align: center;
+      padding: 30px 0 16px;
+      color: var(--text-muted);
+      font-size: 0.82rem;
+    }
+
+    @media (max-width: 520px) {
+      .container { padding: 14px 14px 60px; }
+      .section { padding: 20px 18px; }
+      .section-header {
+        grid-template-columns: 92px 1fr;
+        gap: 15px;
+      }
+      .section-header img,
+      .section-header span { width: 92px !important; height: 92px !important; }
+      .section-header h2 { font-size: 1.22rem; }
+      .quick-note { grid-template-columns: 92px 1fr; gap: 15px; padding-left: 12px; padding-right: 12px; }
+      .quick-note-art { width: 92px; height: 92px; }
+      .tiles-scroll { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+    }
+  </style>
+</head>
+<body>
+
+<div class="container">
+
+  <!-- Hero -->
+  <div class="hero">
+    <img class="hero-art" src="hero-luca-day-guide-cutout.png" alt="Luca Day Guide">
+    <p class="subtitle">A house instruction list for Luca’s babysitter — from Conor & Rach 💛</p>
+  </div>
+
+  <!-- Quick read -->
+  <div class="alert quick-note">
+    <img class="quick-note-art" src="icon-luca-easygoing-cutout.png" alt="">
+    <div class="alert-text">
+      <strong>Luca is pretty easy going.</strong> If he’s cranky, it’s usually because he’s tired or hungry. Snacks, books, Baby Maisy, “Wheels on the Bus,” or a calm cuddle usually help.
+    </div>
+  </div>
+
+  <!-- Daily Rhythm -->
+  <div class="section">
+    <div class="section-header">
+      <img src="icon-luca-rhythm-cutout.png" alt="">
+      <h2>Daily Rhythm</h2>
+    </div>
+    <ul>
+      <li><strong>10 AM</strong> arrive · <strong>Noon</strong> lunch · <strong>1 PM</strong> nap</li>
+      <li>Milk before nap, snack after nap</li>
+    </ul>
+  </div>
+
+  <!-- Meals and Drinks -->
+  <div class="section">
+    <div class="section-header">
+      <img src="icon-luca-meals-cutout.png" alt="">
+      <h2>Meals & Drinks</h2>
+    </div>
+    <ul>
+      <li>Milk in sippy cup; water available all day</li>
+      <li><strong>Lunch:</strong> tofu + tomato sauce, rice/quinoa, pizza, quesadilla, eggs, chickpeas/peas, avocado, veggies</li>
+      <li><strong>Snacks:</strong> apple/crackers + peanut butter, fruit, granola bars, yogurt</li>
+    </ul>
+  </div>
+
+  <!-- Nap -->
+  <div class="section">
+    <div class="section-header">
+      <img src="icon-luca-nap-cutout.png" alt="">
+      <h2>Nap</h2>
+    </div>
+    <span class="time-badge">Usually around 1 PM</span>
+    <ul>
+      <li>Close blinds, read 1–2 books, milk, stuffed animals</li>
+      <li>Milk is easiest on the walk home before nap</li>
+    </ul>
+  </div>
+
+  <!-- Activities -->
+  <div class="section">
+    <div class="section-header">
+      <img src="icon-luca-activities-cutout.png" alt="">
+      <h2>Activities</h2>
+    </div>
+    <ul>
+      <li>Loves books, songs, toys, coloring, park, sprinklers, friends</li>
+      <li>Park toys on first floor: bucket, bus, dump truck</li>
+      <li>Park toys are for trading — he’s good at it</li>
+    </ul>
+  </div>
+
+  <!-- Reset Plan -->
+  <div class="section">
+    <div class="section-header">
+      <img src="icon-luca-reset-cutout.png" alt="">
+      <h2>If He’s Having a Hard Time</h2>
+    </div>
+    <ul>
+      <li>Try snack, <strong>Baby Maisy</strong>, “Wheels on the Bus,” book, or cuddle</li>
+      <li>Walk outside / change scenery / toy distraction can reset him</li>
+      <li>Calm voice + patience usually works best</li>
+    </ul>
+  </div>
+
+  <!-- Smart Home -->
+  <div class="section">
+    <div class="section-header">
+      <img src="icon-luca-smart-cutout.png" alt="">
+      <h2>Smart Home</h2>
+    </div>
+    <p class="smart-note">Everything is controlled via <strong>Google Home</strong>. Say <strong>“Ok Google”</strong> followed by a command. Light switches are also on the walls.</p>
+
+    <h3 class="smart-group">💡 Lights</h3>
+    <div class="tiles-scroll">
+      <div class="tile"><span class="tile-icon">💡</span><div class="tile-name">Kitchen</div></div>
+      <div class="tile"><span class="tile-icon">💡</span><div class="tile-name">Living Room</div><div class="tile-sub">Accent</div></div>
+      <div class="tile"><span class="tile-icon">💡</span><div class="tile-name">Hallway</div></div>
+      <div class="tile"><span class="tile-icon">💡</span><div class="tile-name">Master Bedroom</div></div>
+      <div class="tile"><span class="tile-icon">💡</span><div class="tile-name">Master Bath</div></div>
+      <div class="tile"><span class="tile-icon">💡</span><div class="tile-name">Guest Bath</div></div>
+    </div>
+    <div class="voice-cmd"><span class="mic">🎙</span> “Turn on the <strong>[room]</strong> lights”</div>
+
+    <h3 class="smart-group">❄️ AC / Split Units</h3>
+    <div class="tiles-scroll">
+      <div class="tile"><span class="tile-icon">❄️</span><div class="tile-name">Kitchen</div></div>
+      <div class="tile"><span class="tile-icon">❄️</span><div class="tile-name">Living Room</div></div>
+      <div class="tile"><span class="tile-icon">❄️</span><div class="tile-name">Master Bedroom</div></div>
+      <div class="tile"><span class="tile-icon">❄️</span><div class="tile-name">Office</div></div>
+    </div>
+    <div class="voice-cmd"><span class="mic">🎙</span> “Turn on the <strong>[room]</strong> AC”</div>
+    <p class="note">There are also remotes on the walls — just point them at the split units.</p>
+
+    <h3 class="smart-group">🪟 Smart Blinds</h3>
+    <div class="tiles-scroll">
+      <div class="tile"><span class="tile-icon">🪟</span><div class="tile-name">Living Room</div><div class="tile-sub">5 blinds</div></div>
+      <div class="tile"><span class="tile-icon">🪟</span><div class="tile-name">Master Bedroom</div><div class="tile-sub">3 blinds</div></div>
+      <div class="tile"><span class="tile-icon">🪟</span><div class="tile-name">Master Bath</div></div>
+      <div class="tile"><span class="tile-icon">🪟</span><div class="tile-name">Luca’s Room</div></div>
+    </div>
+    <div class="voice-cmd"><span class="mic">🎙</span> “Open / close the <strong>[room]</strong> blinds”</div>
+  </div>
+
+  <!-- House Notes -->
+  <div class="section">
+    <div class="section-header">
+      <img src="icon-luca-house-cutout.png" alt="">
+      <h2>House Notes</h2>
+    </div>
+    <ul>
+      <li>If you need anything, text us — we’re nearby by phone</li>
+      <li>Access/WiFi details sent separately</li>
+    </ul>
+  </div>
+
+  <!-- Contacts -->
+  <div class="section emergency">
+    <div class="section-header">
+      <img src="icon-luca-help-cutout.png" alt="">
+      <h2>Questions / Help</h2>
+    </div>
+    <ul>
+      <li>Text anytime if unclear; call if Luca seems sick, unsafe, or unusually upset</li>
+    </ul>
+  </div>
+
+  <div class="footer">
+    Made with 🥯 by Conor, Rach & Bialy · 2026
+  </div>
+
+</div>
+
+</body>
+</html>
